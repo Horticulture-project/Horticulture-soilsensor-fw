@@ -6,11 +6,10 @@
 
 /dts-v1/;
 #include <st/f0/stm32f030X4.dtsi>
-#include <st/f0/stm32f030f4px-pinctrl.dtsi>
 
 / {
-	model = "STM32F030 DEMO board";
-	compatible = "st,stm32f030-demo";
+	model = "STM32F030 Horticulture Sensor";
+	compatible = "st,stm32f030-demo", "st,stm32f030f4p6", "st,stm32f030";
 
 	chosen {
 		zephyr,console = &usart1;
@@ -38,16 +37,9 @@
 &gpiof {status = "disabled";};
 
 &usart1 {
-	pinctrl-0 = <&usart1_tx_pa6 &usart1_rx_pa7>;
 	current-speed = <115200>;
 	status = "okay";
 };
-&i2c1 {
-	pinctrl-0 = < &i2c1_scl_pa9 &i2c1_sda_pa10 >;
-	status = "okay";
-	clock-frequency = <I2C_BITRATE_FAST>;
-};
-
 
 &iwdg {
 	status = "okay";
