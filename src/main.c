@@ -44,6 +44,7 @@ void	i2c_read_processed(){
 void	i2c_read_processed(){
 	printk("I2C: stop\n");
 }
+/*
 struct i2c_slave_config {
 	# Private, do not modify 
 	sys_snode_t node;
@@ -56,8 +57,7 @@ struct i2c_slave_config {
 };
 */
 
-
-/* A build error here means your board isn't set up to blink an LED. */
+i2c_slave_config i2c_config;
 
 
 #define I2C_DEV "I2C_0"
@@ -71,8 +71,8 @@ const struct device *i2c_dev;
 		printk("I2C: Device driver not found.\n");
 		return;
 	}
-	i2c_slave_register(i2c_dev, struct i2c_slave_config *cfg)
+	i2c_slave_register(i2c_dev, &i2c_config);
 
-printk("hello");
+printk("EndOfMain");
 
 }
